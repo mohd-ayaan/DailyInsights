@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat&family=Cinzel&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Tangerine&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Great+Vibes&display=swap" rel="stylesheet">
+  <title>Index</title>
+</head>
+<body style="background-color:#fff">
+    <%- include("partials/header.ejs") %>
+    <!-- <img src="../download.jpg" width="100%">     -->
+    <div class="main">
+        <div class="welcome">
+            <h1>DAILY <span class="insights">INSIGHTS</span></h1>
+            <p id="para">"""DAILY INSIGHTS is a diary application. This application will allow users to create and view their journals in which they can write down their thoughts, experiences, and reflections on a regular basis..""" </p>
+            <div id="createpost">
+                <a href="/create">Create Post</a>
+            </div>
+        </div>
+       
+        <div class="list"><ul>
+            <% posts.forEach((post)=>{%>
+                
+                <li><a href="posts/<%= post._id %>" ><%= post.title %></a></li>
+            <%})%>
+        </ul>
+    </div>
+        
+    </div>  
+    <div class="container">
+        <%- include("partials/footer.ejs") %>
+    </div>
+    
+</body>
+</html>

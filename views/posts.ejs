@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post</title>
+</head>
+<body >
+    <div class="posts">
+        <%- include("partials/header.ejs") %>
+        <h1 id="ptitle"><span id="ptitles"><%= post.title %></span> </h1>
+        <p id="pcontent"> <%= post.post %></p>
+    </div>
+    <div class="container">
+        <%- include("partials/footer.ejs") %>
+    </div>
+    
+</body>
+</html>
+ 
+ 
