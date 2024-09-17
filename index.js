@@ -8,7 +8,10 @@ dotenv.config();
 const dbPassword = process.env.DB_PASSWORD;
 const encodedPassword = encodeURIComponent(dbPassword);
 
-mongoose.connect(`mongodb+srv://user_ayaan_31:${encodedPassword}@cluster0.dmifkqb.mongodb.net/`);   
+mongoose.connect(`mongodb+srv://user_ayaan_31:${encodedPassword}@cluster0.dmifkqb.mongodb.net/`, {
+  // useNewUrlParser: true,
+  useUnifiedTopology: true
+});   
 
 
 const ComposeSchema = new mongoose.Schema({
