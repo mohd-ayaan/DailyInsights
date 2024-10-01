@@ -22,7 +22,8 @@ const Compose = mongoose.model('Compose', ComposeSchema);
 
 
 const app = express();//used to create an instance of the Express.js application. This instance is stored in the variable app, which is then used to configure middleware, define routes, and start the server.
-const port = 3000;
+// const port = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.static("public"));//used to serve static files from a directory named "public".
 app.use(bodyParser.urlencoded({ extended: true }));// used to parse incoming request bodies with URL-encoded data.
