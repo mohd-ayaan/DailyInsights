@@ -66,6 +66,10 @@ app.get('/aboutus',(req,res)=>{
   res.render("aboutus");
 })
 
-app.listen(port, () => {
-  console.log(`Listening on port: ${port}`);
+// app.listen(port, () => {
+//   console.log(`Listening on port: ${port}`);
+// });
+app.listen(process.env.PORT||port, "0.0.0.0", () => {
+    console.log(`Server is running on port ${port}`);
+    console.log(`Server is also accessible at http://${localAddress}:${port}`);
 });
