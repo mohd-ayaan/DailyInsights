@@ -49,20 +49,17 @@ Before you begin, ensure you have the following installed:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/mohd-ayaan/DAILY-INSIGHTS.git](https://github.com/mohd-ayaan/DAILY-INSIGHTS.git)
-    cd DAILY-INSIGHTS
+    git clone [https://github.com/mohd-ayaan/DAILYINSIGHTS.git](https://github.com/mohd-ayaan/DAILYINSIGHTS.git)
+    cd DAILYINSIGHTS
     ```
-    *(Note: I've updated the clone URL to reflect "DAILY-INSIGHTS" as your repository name, assuming you rename it or have created it with this name.)*
+    *(Note: I've updated the clone URL to reflect "DAILYINSIGHTS" as your repository name, assuming you rename it or have created it with this name.)*
 2.  **Install NPM dependencies:**
     ```bash
     npm install
     ```
 3.  **Set up Environment Variables:**
     * Create a file named `.env` in the root directory of your project.
-    * Add your MongoDB Atlas connection string to this file. It should look something like this (replace `YOUR_ACTUAL_MONGODB_PASSWORD` with your database user's password, and ensure `test` is your database name as seen in MongoDB Compass):
-        ```
-        MONGODB_URI=mongodb+srv://user_ayaan_31:YOUR_ACTUAL_MONGODB_PASSWORD@cluster0.dmifkqb.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster0
-        ```
+    * Add your MongoDB Atlas connection string to this file.
     * **Important:** Ensure your MongoDB Atlas Network Access is configured to "Allow Access from Anywhere" (`0.0.0.0/0`) for development/testing, and that your database user (`user_ayaan_31`) has read/write access.
 
 ### Running the Application
