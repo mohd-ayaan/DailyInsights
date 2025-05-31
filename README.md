@@ -1,5 +1,8 @@
 # DAILY INSIGHTS: Your Personal Journal
 
+![Homepage of Daily Insights](public/Screenshot(90).png)
+![Lists of Posts](public/Screenshot(89).png)
+![Post View](public/Screenshot(91).png)
 ## Project Overview
 
 DAILY INSIGHTS is a personal diary and journaling web application designed to help users effortlessly document their thoughts, experiences, and reflections on a regular basis. It provides a serene and intuitive space for self-discovery and personal growth, allowing you to cultivate clarity and preserve your unique story.
@@ -20,7 +23,7 @@ DAILY INSIGHTS is a personal diary and journaling web application designed to he
 * **Database:** MongoDB (via MongoDB Atlas for cloud hosting)
 * **Object Data Modeling (ODM):** Mongoose
 * **Templating Engine:** EJS (Embedded JavaScript)
-* **Environment Variables:** `dotenv` for managing sensitive data
+* **Environment Variables:** `dotenv`
 * **Styling:** Custom CSS
 * **Package Manager:** npm
 * **Deployment:** Render.com
@@ -42,9 +45,10 @@ Before you begin, ensure you have the following installed:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/mohd-ayaan/MindMeld.git](https://github.com/mohd-ayaan/MindMeld.git)
-    cd MindMeld
+    git clone [https://github.com/mohd-ayaan/DAILY-INSIGHTS.git](https://github.com/mohd-ayaan/DAILY-INSIGHTS.git)
+    cd DAILY-INSIGHTS
     ```
+    *(Note: I've updated the clone URL to reflect "DAILY-INSIGHTS" as your repository name, assuming you rename it or have created it with this name.)*
 2.  **Install NPM dependencies:**
     ```bash
     npm install
@@ -63,6 +67,7 @@ Once installed and configured:
 
 ```bash
 npm start
+```
 
 The application will start, and you can access it in your web browser at http://localhost:3000.
 
@@ -72,11 +77,7 @@ Create New Post: Click the "Compose" or "Create" link to open the form for a new
 View Post: Click on any entry's title from the homepage to see its full content.
 Edit Post: On the individual post view page, click the "Edit" button to modify its title or content.
 Delete Post: On the individual post view page, click the "Delete" button to remove the entry.
-Deployment
-This application is configured for seamless deployment on Render.com.
 
-Ensure your MONGODB_URI environment variable is set correctly within your Render service settings.
-The npm start script in package.json is used by Render to launch the application.
 Project Structure
 .
 ├── public/                 # Static assets (CSS, images)
@@ -92,10 +93,3 @@ Project Structure
 ├── app.js                  # Main Express.js application file (server setup, routes, DB connection)
 ├── package.json            # Project metadata and dependencies
 └── README.md               # This README file
-Screenshots
-
-
-![Homepage View](https://github.com/user-attachments/assets/7c5a80b5-7f83-4eee-8d6f-1a49aa3e7251)
-![List of Posts View](https://github.com/user-attachments/assets/3c5dff72-04c6-444d-8cb6-8e1dc7d3b82c)
-
-![Post View](https://github.com/user-attachments/assets/ac193bf4-d728-438c-ac21-4fb317573ba9)
