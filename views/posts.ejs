@@ -4,18 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Post</title>
-</head>
-<body >
-    <div class="posts">
-        <%- include("partials/header.ejs") %>
-        <h1 id="ptitle"><span id="ptitles"><%= post.title %></span> </h1>
-        <p id="pcontent"> <%= post.post %></p>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Cinzel&family=Great+Vibes&family=Tangerine&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/main.css">
+    
+    </head>
+<body>
+    <%- include("partials/header.ejs") %>
+
+    <div class="main-content-wrapper">
+        <div class="posts-view"> <h1 id="ptitle"><span id="ptitles"><%= post.title %></span> </h1>
+            <p id="pcontent"> <%= post.post %></p>
+        </div>
     </div>
-    <div class="container">
+
+    <div class="footer-wrapper">
         <%- include("partials/footer.ejs") %>
     </div>
-    
 </body>
 </html>
- 
- 

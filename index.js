@@ -17,7 +17,10 @@ mongoose.connect(`mongodb+srv://user_ayaan_31:${encodedPassword}@cluster0.dmifkq
 const ComposeSchema = new mongoose.Schema({
   title: String,
   post: String
+}, {
+  timestamps: true 
 });
+
 const Compose = mongoose.model('Compose', ComposeSchema);
 
 
@@ -52,6 +55,43 @@ app.post("/post/create", async(req, res) => {
     
   res.redirect("/");
   
+});
+
+// --- Delete Post Route ---
+app.post("/posts/:id/delete", async (req, res) => {
+    try {
+        await Compose.findByIdAndDelete(req.params.id);
+        res.redirect("/");
+    } catch (error) {
+        console.error("Error deleting post:", error);
+        res.status(500).send("Error deleting post.");
+    }
+});
+
+// GET route to display the edit form
+app.get("/posts/:id/edit", async (req, res) => {
+    try {
+        const post = await Compose.findById(req.params.id);
+        if (!post) {
+            return res.status(404).send("Post not found.");
+        }
+        res.render("edit", { post }); // You'll need to create an 'edit.ejs' file
+    } catch (error) {
+        console.error("Error fetching post for edit:", error);
+        res.status(500).send("Error loading edit page.");
+    }
+});
+
+// POST route to handle the submission of the edited post
+app.post("/posts/:id/edit", async (req, res) => {
+    try {
+        const { title, content } = req.body; // Destructure title and content from request body
+        await Compose.findByIdAndUpdate(req.params.id, { title, post: content }); // 'post' is the field name in your schema
+        res.redirect(`/posts/${req.params.id}`); // Redirect to the updated post's detail page
+    } catch (error) {
+        console.error("Error updating post:", error);
+        res.status(500).send("Error updating post.");
+    }
 });
 
 app.get("/posts/:id",async(req,res)=>{

@@ -1,66 +1,73 @@
+/*
+ * Global Resets and Base Styles
+ * Ensures consistent starting point across browsers and sets up Flexbox for sticky footer.
+ */
+html {
+    height: 100%; /* Important for the body to expand and allow flexbox to work */
+}
 
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    height: 100vh;
+    min-height: 100vh; /* Use min-height so content can push the body taller than the viewport */
+    display: flex; /* Enable Flexbox on the body */
+    flex-direction: column; /* Stack children (header, main, footer) vertically */
 }
 
-/* Header styles */
+/*
+ * Header Styles
+ */
 .header {
-    background-color: #585353; 
+    background-color: #585353;
     color: #fff;
     font-size: 1.2em;
     display: flex;
     justify-content: space-between;
-    /* width: 100%; */
+    align-items: center; /* Vertically align items in the header */
+    padding: 10px 20px; /* Add some padding to the header itself */
+}
 
+.header p,
+.header a { /* Target p and a elements directly within .header */
+    margin: 0; /* Reset default margins to control spacing with padding */
+    padding: 0 10px; /* Use padding for spacing between header elements */
 }
-.header p,a{
-    margin: 10px;
-}
-.header .right{
-    margin: 10px;
+
+.header .right {
+    display: flex; /* Use flexbox for elements inside .right for better alignment */
+    align-items: center;
 }
 
 .header a {
-    margin-top: 10px;
     text-decoration: none;
     color: #fff;
+    /* margin-top: 10px; - Removed as padding on .header p,a handles spacing */
 }
 
-
-/* Footer styles */
-.container{
-    width: 97.3vw;
-    position: relative;
-    bottom: -100px;
-}
-footer {
-    background-color: #88BDBC; 
-    color: #333;
-    text-align: center;
-    padding: 10px;
-    /* bottom:0px; */
-    top: 0px;
-    font-size: 1em;
-    
-    /* bottom: 0; */
-    width: 100%;
-    padding: 10px;
-    text-align: center; 
-    position: absolute;
+.header a:hover {
+    color: #89c2d4;
 }
 
-
-.main {
-    padding: 20px;
+/*
+ * Main Content Area Styles
+ * This section will grow to fill available space, pushing the footer down.
+ */
+.main-content-wrapper { /* A new wrapper class for all main content areas */
+    flex-grow: 1; /* This makes this element take up all available vertical space */
+    padding: 20px; /* General padding for content inside */
+    display: flex; /* Use flexbox to center content vertically if needed */
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: flex-start; /* Align content to the top within the wrapper */
 }
 
-
+/* Specific styles for the main welcome section on the index page */
 .main .welcome {
     margin-top: 20px;
     text-align: center;
+    width: 100%; /* Ensure it takes full width within its parent */
+    max-width: 900px; /* Optional: Constrain max width for better readability */
 }
 
 .main h1 {
@@ -68,136 +75,266 @@ footer {
     font-size: 5em;
     text-shadow: 3px 3px 5px #398586;
 }
-.header a:hover {
-    color: #89c2d4;
-  }
 
 .insights {
-    color:#1e8997;
+    color: #1e8997;
     text-shadow: 3px 3px 5px #151e1f;
 }
 
 #para {
     font-size: 2.3em;
     font-family: 'Cinzel', serif;
-    text-shadow: 1px 1px 1px #4d9494 ;
+    text-shadow: 1px 1px 1px #4d9494;
+    padding: 0 20px; /* Add horizontal padding for better readability on smaller screens */
 }
 
-.list {
-    padding-bottom: 90px;
-  }
-.list a{
-    font-size: 2em;
-    text-decoration: none;
-    color:#000;
-    /* padding:20px; */
-}
-.list a:hover{
-    color: #89c2d4;
-}
 #createpost {
     margin-top: 20px;
 }
-#createpost a:hover {
-    background-color:#89c2d4 ;
-  }
 
 #createpost a {
     background-color: #1e8997;
-    color: #fff; 
+    color: #fff;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
     font-size: 2em;
+    display: inline-block; /* Allows padding and margin to work correctly */
 }
 
-/* Create page specific styles */
-.create {
+#createpost a:hover {
+    background-color: #89c2d4;
+}
+
+/* List of posts on the index page */
+.list {
+    padding-bottom: 0; /* Remove old padding-bottom, flexbox handles spacing */
+    margin-top: 40px; /* Add some space above the list */
+    width: 100%;
+    max-width: 800px; /* Constrain width for list items */
+}
+
+.list ul {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+    margin: 0;
+}
+
+.list li.post-item { /* Changed from .list li to .list li.post-item for clarity */
+    margin-bottom: 15px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee; /* Subtle separator */
+    display: flex; /* Main flex container for the whole list item */
+    justify-content: space-between;
+    align-items: center; /* Vertically align items */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens if needed */
+}
+
+.list li.post-item:last-child {
+    border-bottom: none; /* No border on the last item */
+}
+
+/* New: Styles for the container holding the title and date */
+.post-info {
+    display: flex;
+    flex-direction: column; /* Stack title and date vertically */
+    align-items: flex-start; /* Align text to the left within this column */
+    flex-grow: 1; /* Allow this section to take available space */
+    margin-right: 15px; /* Space between post info and actions */
+}
+
+.post-title-link { /* Use the new class */
+    font-size: 1.8em;
+    text-decoration: none;
+    color: #000;
+    margin-bottom: 5px; /* Space between title and date */
+}
+
+.post-title-link:hover {
+    color: #89c2d4;
+}
+
+.post-date {
+    font-size: 0.9em;
+    color: #777; /* Softer color for the date */
+}
+
+/* Ensure your existing .post-actions styles are compatible.
+   They should be structured to align to the right within the .post-item. */
+.post-actions {
+    display: flex;
+    gap: 10px; /* Space between edit/delete buttons */
+    /* Add flex-shrink: 0; if you want to ensure they don't shrink */
+    flex-shrink: 0;
+    margin-left: auto; /* Pushes actions to the far right */
+}
+
+.post-actions a,
+.post-actions button { /* Combined for common styles */
+    font-size: 0.9em; /* Smaller font for action links/buttons */
+    text-decoration: underline;
+    white-space: nowrap; /* Prevent breaking "Edit" or "Delete" */
+    background: none; /* Ensure no background for links */
+    border: none; /* Ensure no border for buttons */
+    cursor: pointer;
+}
+
+.post-actions a {
+    color: #007bff;
+}
+
+.post-actions a:hover {
+    color: #0056b3;
+}
+
+.post-actions button {
+    color: #dc3545;
+}
+
+.post-actions button:hover {
+    color: #c82333;
+}
+
+
+/*
+ * Create/Edit Page Specific Styles
+ */
+.create,
+.edit-post, /* New class for edit page content */
+.about { /* Combined for similar layout structure */
     text-align: left;
     padding: 3%;
-    height: 100%;
-    
+    width: 100%; /* Ensure it takes full width within its flex-grow parent */
+    max-width: 800px; /* Constrain content width */
+    margin: 0 auto; /* Center the content within the flex-grow parent */
+    /* height: 100%; - Removed, flex-grow handles vertical space */
+}
+
+.create h1,
+.edit-post h1,
+.about h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5em;
+    text-align: center; /* Center headings on these pages */
+    margin-bottom: 30px;
 }
 
 .cform {
-    margin: 20px;
+    margin: 20px 0; /* Adjust margin */
 }
 
-.create h1{
-    font-family:'Cinzel', serif;
-    font-size: 2.5em;
-   
-}
 .cform label {
     display: block;
-    margin-bottom: 5px;
-    font-size: 30px;
+    margin-bottom: 8px; /* Increased margin for better spacing */
+    font-size: 1.5em; /* Adjusted font size for labels */
+    font-weight: bold;
+    color: #555;
 }
 
 .cform input[type="text"],
 .cform textarea {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 12px; /* Slightly more padding */
+    margin-bottom: 20px; /* More space below inputs */
     border: 1px solid #ccc;
     border-radius: 5px;
+    box-sizing: border-box; /* Include padding in element's total width */
+    font-size: 1em; /* Ensure consistent font size */
 }
 
+.cform textarea {
+    min-height: 250px; /* Increased min-height for textarea */
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.cform button, /* Target buttons instead of input[type="submit"] for consistency with edit form */
 .cform input[type="submit"] {
     font-size: 1.5em;
-    background-color: #4CAF50;
+    background-color: #28a745; /* Green for Save/Submit */
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 25px; /* Slightly more padding */
     cursor: pointer;
     border-radius: 5px;
-    
-}
-.cform input[type="submit"]:hover{
-    background-color: #2c7530;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+    margin-right: 10px; /* Space between buttons */
 }
 
-
-
-
-
-/* posts */
-.posts{
-    padding-bottom: 333px;
-    
-    
+.cform button:hover,
+.cform input[type="submit"]:hover {
+    background-color: #218838; /* Darker green on hover */
 }
+
+.cform .cancel-button { /* Style for the cancel button on edit page */
+    background-color: #6c757d; /* Grey */
+}
+
+.cform .cancel-button:hover {
+    background-color: #5a6268; /* Darker grey on hover */
+}
+
+
+/*
+ * Individual Post View Styles
+ */
+.posts-view { /* Renamed from .posts to avoid conflict and be more specific */
+    flex-grow: 1; /* Make this section grow */
+    padding: 20px;
+    width: 100%;
+    max-width: 900px; /* Max width for post content */
+    margin: 0 auto; /* Center the content */
+    /* padding-bottom: 0; - Removed old padding */
+}
+
 #ptitle {
-    /* font-family: 'Times New Roman', Times, serif; */
     font-size: 3em;
     text-align: center;
-    
+    margin-bottom: 20px;
+    color: #0056b3; /* Example: Title color */
 }
 
 #pcontent {
-    font-size: 30px;
-    margin: 2em;
-    text-align: justify;
+    font-size: 1.2em; /* Adjusted font size for readability */
+    margin: 2em 0; /* Adjusted margin */
+    text-align: justify; /* Keep justify, but monitor for awkward spacing */
+    white-space: pre-wrap; /* CRITICAL: Preserves line breaks and wraps text */
+    word-wrap: break-word; /* Ensures long words break */
+    line-height: 1.7; /* Improved line height for readability */
+    color: #333;
 }
 
-#ptitle>#ptitles {
-    color:#398586;
-    font-family: 'Cinzel', serif;
-    text-shadow: 1px 1px 1px #4d9494;
-
-}
-/* aboutus */
-.about{
-    padding: 20px;
-    height: 100%;
-  
-}
-.about h1{
-    color:#398586;
+#ptitle > #ptitles { /* More specific selector for the span inside the title */
+    color: #398586;
     font-family: 'Cinzel', serif;
     text-shadow: 1px 1px 1px #4d9494;
 }
-.about p{
-    font-size: 20px;
+
+/*
+ * About Us Page Styles
+ */
+.about p {
+    font-size: 1.2em; /* Consistent font size */
     text-align: justify;
+    line-height: 1.6;
 }
+
+/*
+ * Footer Styles
+ */
+.footer-wrapper { /* New wrapper for the footer */
+    background-color: #88BDBC;
+    color: #333;
+    text-align: center;
+    padding: 15px; /* Consistent padding */
+    width: 100%; /* Ensure it spans full width */
+    margin-top: auto; /* Pushes the footer to the bottom when flex-grow is used */
+}
+
+/* Removed the old .container styles as they are replaced by flexbox and .footer-wrapper */
+/*
+.container{
+    width: 97.3vw;
+    position: relative;
+    bottom: -100px;
+}
+*/
