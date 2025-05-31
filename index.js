@@ -9,8 +9,8 @@ const dbPassword = process.env.DB_PASSWORD;
 const encodedPassword = encodeURIComponent(dbPassword);
 
 mongoose.connect(`mongodb+srv://user_ayaan_31:${encodedPassword}@cluster0.dmifkqb.mongodb.net/`, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
+  // useNewUrlParser: true,
+  // useUnifiedTopology: true
 });   
 
 
@@ -25,7 +25,8 @@ const Compose = mongoose.model('Compose', ComposeSchema);
 
 
 const app = express();//used to create an instance of the Express.js application. This instance is stored in the variable app, which is then used to configure middleware, define routes, and start the server.
-const port = 3000;
+// const port = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.static("public"));//used to serve static files from a directory named "public".
 app.use(bodyParser.urlencoded({ extended: true }));// used to parse incoming request bodies with URL-encoded data.
@@ -106,6 +107,10 @@ app.get('/aboutus',(req,res)=>{
   res.render("aboutus");
 })
 
-app.listen(port, () => {
-  console.log(`Listening on port: ${port}`);
+// app.listen(port, () => {
+//   console.log(`Listening on port: ${port}`);
+// });
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server is running on port ${PORT}`);
+    // console.log(`Server is also accessible at http://localhost:${PORT}`); // For local testing
 });
