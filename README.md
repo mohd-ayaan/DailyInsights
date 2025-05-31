@@ -62,28 +62,3 @@ Once installed and configured:
 ```bash
 npm start
 ```
-
-The application will start, and you can access it in your web browser at http://localhost:3000.
-
-Usage
-Homepage: View a chronological list of your journal entries.
-Create New Post: Click the "Compose" or "Create" link to open the form for a new entry.
-View Post: Click on any entry's title from the homepage to see its full content.
-Edit Post: On the individual post view page, click the "Edit" button to modify its title or content.
-Delete Post: On the individual post view page, click the "Delete" button to remove the entry.
-
-Project Structure
-.
-├── public/                 # Static assets (CSS, images)
-│   └── main.css            # Main stylesheet for the application
-├── views/                  # EJS templates for rendering pages
-│   ├── aboutus.ejs         # About Us page template
-│   ├── create.ejs          # Create new post form template
-│   ├── edit.ejs            # Edit existing post form template
-│   ├── index.ejs           # Homepage displaying all posts
-│   └── posts.ejs           # Individual post view template
-├── .env                    # Local environment variables (NOT committed to Git)
-├── .gitignore              # Specifies files and folders to be ignored by Git
-├── app.js                  # Main Express.js application file (server setup, routes, DB connection)
-├── package.json            # Project metadata and dependencies
-└── README.md               # This README file
