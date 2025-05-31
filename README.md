@@ -1,12 +1,5 @@
 # DAILY INSIGHTS: Your Personal Journal
 
-![Homepage of Daily Insights](public/https://github.com/mohd-ayaan/DailyInsights/tree/main/public/Screenshot(90).png)
-
-### Lists of Posts
-![Lists of Posts](public/Screenshot(89).png)
-
-### Post View
-![Post View](public/Screenshot(91).png)
 ## Project Overview
 
 DAILY INSIGHTS is a personal diary and journaling web application designed to help users effortlessly document their thoughts, experiences, and reflections on a regular basis. It provides a serene and intuitive space for self-discovery and personal growth, allowing you to cultivate clarity and preserve your unique story.
