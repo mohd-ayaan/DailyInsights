@@ -1,6 +1,6 @@
 # DAILY INSIGHTS: Your Personal Journal
 
-![Homepage of Daily Insights](public/Screenshot(90).png)
+![Homepage of Daily Insights]([public/](https://github.com/mohd-ayaan/DailyInsights/tree/main/public/Screenshot(90).png)
 
 ### Lists of Posts
 ![Lists of Posts](public/Screenshot(89).png)
