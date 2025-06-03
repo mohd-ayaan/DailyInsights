@@ -1,0 +1,67 @@
+# DAILY INSIGHTS: Your Personal Journal
+![Daily Insights Home](public/DailyInsightsHome.png)
+![Posts_list](public/Postslist.png)
+![Individual Post](public/IndividualPost.png)
+
+## Project Overview
+
+DAILY INSIGHTS is a personal diary and journaling web application designed to help users effortlessly document their thoughts, experiences, and reflections on a regular basis. It provides a serene and intuitive space for self-discovery and personal growth, allowing you to cultivate clarity and preserve your unique story.
+
+## Features
+
+* **Compose & Save Entries:** Easily write and store new journal entries with a title and content.
+* **View All Insights:** Browse a comprehensive list of all your created entries on the homepage.
+* **Detailed Entry View:** Click on any entry's title to read its full content on a dedicated page.
+* **Edit Functionality:** Update and modify existing journal entries to refine your thoughts.
+* **Delete Functionality:** Remove entries you no longer wish to keep.
+* **Persistent Storage:** All your journal entries are securely stored in a cloud-based MongoDB database.
+* **Simple & Intuitive Interface:** Designed for a straightforward and engaging user experience.
+
+## Technologies Used
+
+* **Backend:** Node.js with Express.js framework
+* **Database:** MongoDB (via MongoDB Atlas for cloud hosting)
+* **Object Data Modeling (ODM):** Mongoose
+* **Templating Engine:** EJS (Embedded JavaScript)
+* **Environment Variables:** `dotenv`
+* **Styling:** Custom CSS
+* **Package Manager:** npm
+* **Deployment:** Render.com
+
+## Getting Started
+
+Follow these steps to get a local copy of the project up and running on your machine.
+
+### Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+* [Node.js](https://nodejs.org/) (LTS version recommended)
+* [npm](https://www.npmjs.com/get-npm) (comes with Node.js)
+* A [MongoDB Atlas Account](https://www.mongodb.com/cloud/atlas) for your cloud database.
+* [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+
+### Installation (Local)
+
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/mohd-ayaan/DAILYINSIGHTS.git](https://github.com/mohd-ayaan/DAILYINSIGHTS.git)
+    cd DAILYINSIGHTS
+    ```
+    *(Note: I've updated the clone URL to reflect "DAILYINSIGHTS" as your repository name, assuming you rename it or have created it with this name.)*
+2.  **Install NPM dependencies:**
+    ```bash
+    npm install
+    ```
+3.  **Set up Environment Variables:**
+    * Create a file named `.env` in the root directory of your project.
+    * Add your MongoDB Atlas connection string to this file.
+    * **Important:** Ensure your MongoDB Atlas Network Access is configured to "Allow Access from Anywhere" (`0.0.0.0/0`) for development/testing, and that your database user (`user_ayaan_31`) has read/write access.
+
+### Running the Application
+
+Once installed and configured:
+
+```bash
+npm start
+```
