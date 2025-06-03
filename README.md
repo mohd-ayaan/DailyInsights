@@ -1,4 +1,7 @@
 # DAILY INSIGHTS: Your Personal Journal
+![Daily Insights Home](public/Screenshot (90).png)
+![Posts_list](public/Screenshot (89).png)
+![Individual Post](public/Screenshot (91).png)
 
 ## Project Overview
 
